@@ -18,16 +18,18 @@ class SightingsController < ApplicationController
     end  
     
     def edit 
-        @sighting = Sighting.find(params[:animal_id])
+        @sighting = Sighting.find(params[:id])
     end 
     
     def update
-        @sighting = Sighting.find(params[:animal_id])
+        @sighting = Sighting.find(params[:id])
         
         if(@sighting.update(sight_params))
             redirect_to animal_path(@sighting.animal)
-        end
+    else
+        render action: :new
     end
+end
     
   private
     
