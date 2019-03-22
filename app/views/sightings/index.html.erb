@@ -1,0 +1,13 @@
+<h1>Sighting</h1>
+
+<ul> <%=@sightings.each do |sight| %>
+    <li>
+        <%= link_to "#{sight.animal.name} - #{sight.name}"
+    </li>
+
+
+</ul>
+
+    <%= link_to "New", new_sighting_path %>
+    
+

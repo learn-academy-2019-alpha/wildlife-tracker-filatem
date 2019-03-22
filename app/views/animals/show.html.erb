@@ -1,0 +1,28 @@
+<h1>Name: <%=@animal.name%></h1>
+<h3>Latin Name: <%=@animal.latin_name %></h3>
+<h3>Kingdom: <%=@animal.kingdom %> </h3>
+
+
+  <% @animal.sightings.each do |sight| %>
+   <h3>Date: <%=sight.date%> <br/>
+   <br/>
+    Time: <%=sight.time%><br/>
+   <br/>
+    Latitude: <%=sight.latitude%><br/>
+   <br/>
+    Longitude: <%=sight.longitude%> <br/>
+   <br/>
+    Region: <%=sight.region%> <%sighting_path(sight)%></h3>
+    
+  <% end %>
+
+
+<h3><%= link_to "Edit", edit_animal_path(@animal) %> 
+ <%= link_to "Delete", animal_path(@animal),
+                            method: :DELETE,
+                            data: {confirm: 'Are you sure?' } %>
+  
+                          
+<%= link_to "Add new Sighting", new_sighting_path({animal_id: @animal.id}) %> </h3>
+
+<%= link_to "Edit new Sighting", edit_sighting_path({animal_id: @animal.id}) %> </h3>

@@ -1,0 +1,21 @@
+<h1>Add a new Animal</h1>
+<ul><% if @animal.errors %>
+    <% @animal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
+<% end %>
+
+<%= form_for @animal do |a| %>
+<%=a.label :name %>
+    <%=a.text_field :name %>
+    
+<%=a.label :latin_name %>
+    <%=a.text_field :latin_name %>
+    
+<%=a.label :kingdom %>
+    <%=a.text_field :kingdom %>
+    
+    <%=a.submit "create" %>
+<% end %>
+
